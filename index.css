@@ -142,6 +142,7 @@ label{
 }
 
 #rifa_winner2 {
-    color:rgb(77, 206, 77);
+    /* color:rgb(77, 206, 77); */
+    color:red;
     font-size: 42px;
 }
