@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteios</title>
+</head>
+<body class='corpo'>
+    <div id='conteudo' class='text-center'>
+        <button onclick="show('sorteio')"> Sorteio</button>
+        <button onclick="show('rifa')"> Rifa</button>
+        <button onclick="show('cadastro_rifa')"> Cadastro</button>
+        <button onclick="show('nova_rifa')"> Nova Rifa</button>
+        
+       <div id='sorteio'>
+            <div id="sorteado">
+                <label> Ganhador:  </label>
+                <label id="winner"></label>
+            </div>
+            <div class='container2 rows'>
+                <div class='reset'>
+                    <label class='col-10'></label>
+                    <button class='botao col-1' onclick='reset()'> Reset </button>
+                </div>
+                <textarea id='texto' cols="100" rows="10"></textarea>
+            
+            </div>
+            <div id='buttons' class=''>
+                <div class=''>
+                    <button class='botao sortear' onclick='sort()'> Sortear </button>
+                </div>
+                
+
+            </div>
+        </div>
+        <div id='rifa' class='rows'>
+            <label class='col-12'>Rifa</label>
+            <label class='col-6' id='rifa_winner1'>Numero Sorteado:</label>
+            <label class='col-6' id='rifa_winner2'></label>
+            <div class='rows'>
+                
+                <div id='rifa_n_info' class='rows'>
+                    <div class='col-3'>
+                        <label>Número:</label>
+                        <label class='number_info info'> - </label>
+                    </div>
+                    <div class='col-3 rows'>
+                        <div class='col-12'>
+                            <label>RG: </label>
+                            <label class='owner_id info'> - </label>
+                        </div>
+                        <div class='col-12'>
+                            <label>Contato:</label>
+                            <label class='owner_phone info'> - </label>
+                        </div>
+                        <div class='col-12'>
+                            <label>Name:</label>
+                            <label class='owner_name info'> - </label>
+                        </div>
+                        <button id='delete_number' onclick='delete_number(this.dataset.numero)' disabled>Delete</button>
+                    </div>
+                </div>
+                
+                <div id='rifa_n' class='rows rifa_numbers'>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div id='nova_rifa'>
+            <label> Quantidade: </label><input id='rifa_quantidade' min='10' type='number' value='10'>
+            <button onclick='reset_rifa()'>Nova Rifa</button>
+        </div>
+        <div id='cadastro_rifa'>
+            <form id='cadastro' class=''>
+                <label>RG: </label>
+                <input id='cadastro_rg' type='text' required>
+                <div class='col-12'></div>
+                <label>Contato: </label>
+                <input id='cadastro_contato' type='text' required>
+                <div class='col-12'></div>
+
+                <label>Nome(Opcional): </label>
+                <input id='cadastro_nome' type='text'>
+                <div class='col-12'></div>
+
+                <label>Números: </label>
+                <input id='cadastro_numeros' type='text' required>
+                <div class='col-12'></div>
+                <button id='cadastro_submit' onclick="cadastrar(event)"> Salvar </button>
+            </form>
+        </div>    
+    </div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="index.js"></script>
+</html>

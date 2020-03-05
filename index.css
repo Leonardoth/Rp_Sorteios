@@ -1,0 +1,147 @@
+@media screen and (min-width: 900px){
+    .reset{
+        margin-right:24.4vw;
+    }
+}
+
+.botao {
+    height: 50px;
+    width:100px;
+    border:none;
+    color:red;
+}
+
+.botao:active{
+    background-color: grey;
+}
+
+#sorteio, #rifa, #cadastro_rifa, #nova_rifa, #rifa_winner1, #rifa_winner2{
+    display:none;
+}
+#conteudo{
+    margin-top:30vh;
+    /* max-width:800px; */
+}
+
+.corpo {
+    background-color:rgb(77, 73, 73);
+    /* background-image: url(https://i.imgur.com/w5qVDc2.png); */
+    background-repeat: no-repeat;
+}
+
+
+#sorteado, .title {
+    font-size: 30px;
+    font-weight: 800;
+    /* color: white; */
+}
+
+
+.ativo {
+    color:green;
+}
+
+.sortear{
+    border-radius:20px;
+}
+
+.rifa_numbers button{
+    border:none;
+    border-radius:10%;
+    min-width: 40px;
+    background-color: rgb(56, 185, 56);
+    margin:2px;
+}
+
+.rifa_numbers button.selected {
+    background-color:rgb(246, 92, 92);
+}
+
+.rifa_numbers button.random{
+    background-color:rgb(58, 58, 195);
+}
+
+.rifa_numbers button label{
+    cursor: pointer;
+}
+
+label{
+    color:black;
+    font-weight: 800;
+}
+#rifa_n_info label.info{
+    color:rgb(120, 170, 100);
+    font-weight: 800;
+}
+#rifa_n_info button{
+    border:none;
+    border-radius:10px;
+}
+
+#rifa_n_info button :disabled{
+    display:none;
+}
+
+#rifa_n_info button:active{
+    background-color:rgb(170, 70, 70);
+}
+
+#cadastro_rifa{
+    margin: 20px;
+}
+
+#cadastro_rifa label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    margin-top:10px;
+}
+
+#cadastro_rifa input{
+     display: inline-block;
+     float: left;
+     margin-top:10px;
+     margin-left: 20px;
+    
+}
+
+#cadastro_rifa button{
+    display: inline-block;
+     float: left;
+     margin-top:10px;
+     margin-left: 20px;
+}
+
+#nova_rifa {
+    margin:30px;
+}
+
+#nova_rifa label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    margin-top:10px;
+}
+
+#nova_rifa input{
+    display: inline-block;
+     float: left;
+     margin-top:10px;
+     margin-left: 20px;
+}
+
+#nova_rifa button {
+    display: inline-block;
+     float: left;
+     margin-top:10px;
+     margin-left: 20px;
+}
+
+#rifa_winner2 {
+    color:rgb(77, 206, 77);
+    font-size: 42px;
+}
