@@ -23,9 +23,10 @@
     /* max-width:800px; */
 }
 
-.corpo {
-    background-color:rgb(77, 73, 73);
-    /* background-image: url(https://i.imgur.com/w5qVDc2.png); */
+body {
+    background-image: url(/source/images/lion.svg), linear-gradient(45deg, rgb(199, 135, 16) 80%,rgb(221, 221, 13));
+    background-size: contain;
+    height:100vh;
     background-repeat: no-repeat;
 }
 
@@ -68,6 +69,7 @@
 label{
     color:black;
     font-weight: 800;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 #rifa_n_info label.info{
     color:rgb(120, 170, 100);

@@ -117,9 +117,14 @@ function load_info(element){
 function delete_number(number){
     // receives number
     // removes the owner
+    var rg = numbers[number]
     numbers[number] = ''
-    // removes the number from the owners info.
-    delete info[number]
+    //removes the number from the owners info.
+    if(info[rg][3] == [number]){
+        delete info[rg]
+    }else{
+        info[rg][3].splice(info[rg][3].indexOf(number), 1)
+    }
     save_data('numbers', numbers)
     save_data('info', info)
 }
@@ -142,7 +147,6 @@ function cadastrar(e){
         
         if(info[rg]){
             numeros.split(',').forEach(numero =>{
-                console.log(numero)
                 if(numbers[numero] == ''){
                     numbers[numero] = rg
                     info[rg][3].push(numero)
