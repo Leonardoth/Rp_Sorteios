@@ -29,6 +29,7 @@ function reset(){
 }
 
 function show(e){
+    hide_side()
     $('#sorteio').css('display', 'none')
     $('#rifa').css('display', 'none')
     $('#cadastro_rifa').css('display', 'none')
@@ -48,8 +49,8 @@ function load_data(section){
 function load_rifa(){
     var div = $('#rifa_n')[0]
     div.innerHTML = ''
-    var temp = document.getElementsByTagName('template')[0]
     var entries = Object.entries(numbers)
+    console.log(entries)
     for(const [numero, owner] of entries){
         var btn = document.createElement('button')
         btn.className = 'btn-number col-xm-1'
@@ -99,6 +100,9 @@ function load_info(element){
     var owner = element.dataset.owner || undefined
     var number = element.getElementsByTagName('label')[0].innerText
     $('.number_info').text(number)
+    hide_side_instant()
+    show_side()
+    $('#rifa_n_info').fadeIn(1000)
     if(owner){
         var rifa_info = get_data('info') || {['100-236']: ['100-236', '647-5839', 'Khilo Enil']}
         $('.owner_id').text(owner)
@@ -127,6 +131,7 @@ function delete_number(number){
     }
     save_data('numbers', numbers)
     save_data('info', info)
+    show('rifa')
 }
 
 function reset_rifa(){
@@ -168,7 +173,7 @@ function cadastrar(e){
         
         save_data('numbers', numbers)
         save_data('info', info)
-
+        show('rifa')
     }
 
 
@@ -194,4 +199,36 @@ function sortear(){
     $('#rifa_winner1').show()
     $('#rifa_winner2').show()
     $('#rifa_winner2').text(resultado)
+}
+
+
+function show_side(){   
+    $('#left-side-back').fadeIn(1000)
+    $("#left-side").animate({width:'show'}, 1000);
+}
+
+function hide_side(){
+    hide_side_content()
+    $("#left-side").animate({width:'hide'}, 1000);
+}
+
+function cadastro(){
+    $('#rifa_n_info').hide()
+    $('#cadastro').children('input').each(function(){
+        $(this).val('')
+    })
+    $('#cadastro_rifa').fadeIn(2000)
+    show_side()
+}
+
+function hide_side_content(){
+    $('#left-side').children('div').each(function(){
+        $(this).fadeOut(500)
+    })
+}
+
+function hide_side_instant(){
+    $('#left-side').children('div').each(function(){
+        $(this).hide()
+    })
 }
