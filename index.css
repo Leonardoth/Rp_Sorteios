@@ -27,9 +27,12 @@
     border:none;
 }
 #navbar button.separated{
+    position: absolute;
+    top:1vh;
+    right:0;
     color:rgb(223, 70, 70);
     font-size:2.5vh;
-    float:right;
+    font-weight: 800;
 }
 #left-side{
     background-color:var(--blue-2);
@@ -62,7 +65,11 @@
     #left-side{
         width:55vw;
     }
-    
+
+    #navbar button.separated{
+        position:relative;
+        top:0;
+    }
     
 }
 /* Sorteio */
