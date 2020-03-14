@@ -7,37 +7,40 @@
 }
 #conteudo{
     background-color:var(--blue-4);
+    display:table;
     height:100vh;
 }
-#sorteio, #rifa, #rifa_n_info, #cadastro_rifa, #left-side{
+#sorteio, #rifa_n_info, #cadastro_rifa, #left-side, #rifa{
     display:none;
 }
 
 #navbar {
     background-color:var(--blue-1);
-    min-height:5vh;
     min-width: 100vw;
+    min-height:5vh;
 }
 
 #navbar button{
-    border:none;
     background-color: var(--blue-1);
     color:white;
     font-size:3vh;
+    border:none;
 }
 
 #left-side{
-    float:left;
-    height:95vh;
-    width:20vw;
     background-color:var(--blue-2);
+    position:absolute;
+    height:95vh;
+    float:left;
+    width:20vw;
+    left:0;
 }
 #left-side-back{
     text-align:right;
 }
 #left-side-back button{
-    border: solid 1px white;
     background-color:var(--blue-1);
+    border: solid 1px white;
     color:white;
 }
 .left{
@@ -45,26 +48,37 @@
 }
 
 #center-side{
-    width:70vw;
     height:95vh;
+    width:80vw;
+    z-index:-1;
+   
+}
+
+@media(max-width:450px){
+    #left-side{
+        width:55vw;
+    }
+    
+    
 }
 /* Sorteio */
 #sorteio {
+    text-align:center;
     max-height:10vh;
 }
 #sorteado{
+    text-align:center;
     min-height:10vh;
-    display:table
 }
 
 #sorteado div{
-    display:table-cell;
     vertical-align: middle;
     text-align:center;
-    width:70vw;
+    width:auto;
 }
 
 #sorteado2 {
+    text-align:center;
     max-height:95vh;
 }
 #texto{
@@ -72,27 +86,32 @@
     width:35vw;
 }
 
+#resultado{
+    width:20vw;
+}
+
 @media (max-width:600px){
     #texto{
         width:15vw;
     }
 }
+@media(max-width:450px){
+    #sorteado2{
+
+    }
+    #texto{
+        width:90vw;
+    }
+}
 
 
 /* Rifa */
-#rifa{
-    display:table;
-}
 
-.center-side{
-    width:70vw;
-    text-align:center;
-}
 
 #result{
     display:table-cell;
     vertical-align: middle;
-    width:70vw;
+    width:100vw;
     height:30vh;
     font-size:3vh;
 }
