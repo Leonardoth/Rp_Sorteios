@@ -33,14 +33,11 @@ function show(e){
     $('#sorteio').css('display', 'none')
     $('#rifa').css('display', 'none')
     $('#cadastro_rifa').css('display', 'none')
-    $('#nova_rifa').css('display', 'none')
     load_data(e)
     $(`#${e}`).css('display', 'block')
 }
 
-function number_info(element){
 
-}
 
 function load_data(section){
     section == 'rifa'? load_rifa() : load_sorteio()
@@ -135,7 +132,7 @@ function delete_number(number){
 }
 
 function reset_rifa(){
-    var numbers = $('#rifa_n')[0].innerHTML = ''
+    $('#rifa_n')[0].innerHTML = ''
     new_numbers($('#rifa_quantidade')[0].value)
     load_data('rifa')
 }
@@ -208,17 +205,15 @@ function show_side(){
 }
 
 function hide_side(){
-    hide_side_content()
+    hide_side_instant()
     $("#left-side").animate({width:'hide'}, 1000);
 }
 
 function cadastro(){
-    $('#rifa_n_info').hide()
     $('#cadastro').children('input').each(function(){
         $(this).val('')
     })
-    $('#cadastro_rifa').fadeIn(2000)
-    show_side()
+    change_side('#cadastro_rifa')
 }
 
 function hide_side_content(){
@@ -231,4 +226,17 @@ function hide_side_instant(){
     $('#left-side').children('div').each(function(){
         $(this).hide()
     })
+}
+
+function new_raffle(){
+    change_side('#nova_rifa')
+}
+
+function change_side(new_content, delay=2000){
+    // Changes the content of the sidebar without having to close it.
+    $('#nova_rifa').hide()
+    $('#cadastro_rifa').hide()
+    $('#rifa_n_info').hide()
+    $(new_content).fadeIn(2000)
+    show_side()
 }

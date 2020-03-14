@@ -26,7 +26,11 @@
     font-size:3vh;
     border:none;
 }
-
+#navbar button.separated{
+    color:rgb(223, 70, 70);
+    font-size:2.5vh;
+    float:right;
+}
 #left-side{
     background-color:var(--blue-2);
     position:absolute;
