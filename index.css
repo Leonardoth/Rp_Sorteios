@@ -8,7 +8,37 @@
 #conteudo{
     background-color:var(--blue-4);
     display:table;
-    height:100vh;
+    height:95vh;
+}
+footer{
+    background-color:var(--greenish);
+    color:var(--blue-3);
+    text-align:right;
+    height:5vh;
+}
+footer a{
+    font-size: 3vh;
+    text-decoration: none;
+}
+
+footer span{
+    margin:10px 10px 10px 10px;
+}
+
+footer a:hover{
+    color:var(--blue-3);
+    text-decoration:none;
+}
+
+footer img{
+    width:20px;
+    height:20px;
+}
+
+@media(max-width:800px){
+    footer img{
+        display:none;
+    }
 }
 #sorteio, #rifa_n_info, #cadastro_rifa, #left-side, #rifa{
     display:none;
