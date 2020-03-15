@@ -18,7 +18,7 @@
         </nav>
         <div id='left-side'>
             <div id='left-side-back' style="display:none;">
-                <button onclick='hide_side()'>Back</button>
+                <button onclick='hide_side()'>Voltar</button>
             </div>
             <div id='nova_rifa'>
                 <label> Quantidade De Números: </label><input id='rifa_quantidade' min='10' type='number' value='10'>
@@ -59,7 +59,7 @@
                             <div></div>
             
                             <label>Números: </label>
-                            <input id='cadastro_numeros' type='text' required>
+                            <input placeholder="Ex: 1,2,10" id='cadastro_numeros' type='text' required>
                             <div></div>
                             <button id='cadastro_submit' onclick="cadastrar(event)"> Salvar </button>
                         </form>
