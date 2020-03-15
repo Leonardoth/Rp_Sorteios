@@ -15,25 +15,25 @@
 }
 
 #navbar {
-    position:relative;
     background-color:var(--blue-1);
+    position:relative;
     min-width: 100vw;
     min-height:5vh;
 }
 
 #navbar button{
     background-color: var(--blue-1);
-    color:white;
     font-size:3vh;
+    color:white;
     border:none;
 }
 #navbar button.separated{
-    position:absolute;
-    margin-left:3vw;
-    bottom:0;
     color:rgb(223, 70, 70);
-    font-size:3vh;
+    position:absolute;
     font-weight: 800;
+    margin-left:3vw;
+    font-size:3vh;
+    bottom:0;
 }
 #left-side{
     background-color:var(--blue-2);
@@ -61,8 +61,12 @@
     z-index:-1;
    
 }
-
-@media(max-width:450px){
+@media(max-width:800px){
+    #left-side{
+        width:40vw;
+    }
+}
+@media(max-width:500px){
     #left-side{
         width:55vw;
     }
@@ -102,16 +106,12 @@
 #resultado{
     width:20vw;
 }
-
-@media (max-width:600px){
+@media(max-width:800px){
     #texto{
-        width:15vw;
+        width:50vw;
     }
 }
-@media(max-width:450px){
-    #sorteado2{
-
-    }
+@media (max-width:600px){
     #texto{
         width:90vw;
     }
@@ -122,28 +122,28 @@
 
 
 #result{
-    display:table-cell;
     vertical-align: middle;
-    width:100vw;
-    height:30vh;
+    display:table-cell;
     font-size:3vh;
+    height:30vh;
+    width:100vw;
 }
 
 #rifa .rifa_numbers button{
-    border:none;
-    font-size:1vw;
-    width:2.5vw;
-    margin:0.10vw;
-    text-align:center;
     background-color: green;
+    text-align:center;
     border-radius:5px;
     min-width:30px;
+    font-size:1vw;
+    margin:0.10vw;
+    width:2.5vw;
+    border:none;
 }
 
 .rifa_numbers button label {
-    color:white;
-    cursor:pointer;
     font-size:14px;
+    cursor:pointer;
+    color:white;
 }
 
 #n_info{
@@ -158,8 +158,8 @@
 
 #cadastro label{
     display:inline-block;
-    width:140px;
     text-align:center;
+    width:140px;
 }
 
 #cadastro input{
