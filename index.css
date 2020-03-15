@@ -1,149 +1,167 @@
-@media screen and (min-width: 900px){
-    .reset{
-        margin-right:24.4vw;
+:root{
+    --greenish: #122C34;
+    --blue-1:#274C77;
+    --blue-2:#6096BA;
+    --blue-3:#4EA5D9;
+    --blue-4:#A3CEF1;
+}
+#conteudo{
+    background-color:var(--blue-4);
+    display:table;
+    height:100vh;
+}
+#sorteio, #rifa_n_info, #cadastro_rifa, #left-side, #rifa{
+    display:none;
+}
+
+#navbar {
+    position:relative;
+    background-color:var(--blue-1);
+    min-width: 100vw;
+    min-height:5vh;
+}
+
+#navbar button{
+    background-color: var(--blue-1);
+    color:white;
+    font-size:3vh;
+    border:none;
+}
+#navbar button.separated{
+    position:absolute;
+    margin-left:3vw;
+    bottom:0;
+    color:rgb(223, 70, 70);
+    font-size:3vh;
+    font-weight: 800;
+}
+#left-side{
+    background-color:var(--blue-2);
+    position:absolute;
+    height:95vh;
+    float:left;
+    width:20vw;
+    left:0;
+}
+#left-side-back{
+    text-align:right;
+}
+#left-side-back button{
+    background-color:var(--blue-1);
+    border: solid 1px white;
+    color:white;
+}
+.left{
+    margin-top:2vh;
+}
+
+#center-side{
+    height:95vh;
+    width:80vw;
+    z-index:-1;
+   
+}
+
+@media(max-width:450px){
+    #left-side{
+        width:55vw;
+    }
+
+    #navbar button.separated{
+        position:relative;
+        font-size:2.5vh;
+        margin-left:1vw;
+    }
+    
+}
+/* Sorteio */
+#sorteio {
+    text-align:center;
+    max-height:10vh;
+}
+#sorteado{
+    text-align:center;
+    min-height:10vh;
+}
+
+#sorteado div{
+    vertical-align: middle;
+    text-align:center;
+    width:auto;
+}
+
+#sorteado2 {
+    text-align:center;
+    max-height:95vh;
+}
+#texto{
+    resize:none;
+    width:35vw;
+}
+
+#resultado{
+    width:20vw;
+}
+
+@media (max-width:600px){
+    #texto{
+        width:15vw;
+    }
+}
+@media(max-width:450px){
+    #sorteado2{
+
+    }
+    #texto{
+        width:90vw;
     }
 }
 
-.botao {
-    height: 50px;
-    width:100px;
+
+/* Rifa */
+
+
+#result{
+    display:table-cell;
+    vertical-align: middle;
+    width:100vw;
+    height:30vh;
+    font-size:3vh;
+}
+
+#rifa .rifa_numbers button{
     border:none;
-    color:red;
+    font-size:1vw;
+    width:2.5vw;
+    margin:0.10vw;
+    text-align:center;
+    background-color: green;
+    border-radius:5px;
+    min-width:30px;
 }
 
-.botao:active{
-    background-color: grey;
+.rifa_numbers button label {
+    color:white;
+    cursor:pointer;
+    font-size:14px;
 }
 
-#sorteio, #rifa, #cadastro_rifa, #nova_rifa, #rifa_winner1, #rifa_winner2{
-    display:none;
-}
-#conteudo{
-    margin-top:30vh;
-    /* max-width:800px; */
+#n_info{
+    margin-top:2vh;
 }
 
-body {
-    background-image: url(/source/images/lion.svg), linear-gradient(45deg, rgb(199, 135, 16) 80%,rgb(221, 221, 13));
-    background-size: contain;
-    height:100vh;
-    background-repeat: no-repeat;
+.selected{
+    background-color:rgb(240, 80, 80) !important;
 }
 
+/* Cadastro */
 
-#sorteado, .title {
-    font-size: 30px;
-    font-weight: 800;
-    /* color: white; */
+#cadastro label{
+    display:inline-block;
+    width:140px;
+    text-align:center;
 }
 
-
-.ativo {
-    color:green;
-}
-
-.sortear{
-    border-radius:20px;
-}
-
-.rifa_numbers button{
-    border:none;
-    border-radius:10%;
-    min-width: 40px;
-    background-color: rgb(56, 185, 56);
-    margin:2px;
-}
-
-.rifa_numbers button.selected {
-    background-color:rgb(246, 92, 92);
-}
-
-.rifa_numbers button.random{
-    background-color:rgb(58, 58, 195);
-}
-
-.rifa_numbers button label{
-    cursor: pointer;
-}
-
-label{
-    color:black;
-    font-weight: 800;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-}
-#rifa_n_info label.info{
-    color:rgb(120, 170, 100);
-    font-weight: 800;
-}
-#rifa_n_info button{
-    border:none;
-    border-radius:10px;
-}
-
-#rifa_n_info button :disabled{
-    display:none;
-}
-
-#rifa_n_info button:active{
-    background-color:rgb(170, 70, 70);
-}
-
-#cadastro_rifa{
-    margin: 20px;
-}
-
-#cadastro_rifa label{
-    display: inline-block;
-    float: left;
-    clear: left;
-    width: 250px;
-    text-align: right;
-    margin-top:10px;
-}
-
-#cadastro_rifa input{
-     display: inline-block;
-     float: left;
-     margin-top:10px;
-     margin-left: 20px;
-    
-}
-
-#cadastro_rifa button{
-    display: inline-block;
-     float: left;
-     margin-top:10px;
-     margin-left: 20px;
-}
-
-#nova_rifa {
-    margin:30px;
-}
-
-#nova_rifa label{
-    display: inline-block;
-    float: left;
-    clear: left;
-    width: 250px;
-    text-align: right;
-    margin-top:10px;
-}
-
-#nova_rifa input{
-    display: inline-block;
-     float: left;
-     margin-top:10px;
-     margin-left: 20px;
-}
-
-#nova_rifa button {
-    display: inline-block;
-     float: left;
-     margin-top:10px;
-     margin-left: 20px;
-}
-
-#rifa_winner2 {
-    color:rgb(77, 206, 77);
-    font-size: 42px;
+#cadastro input{
+    margin-bottom: 1vh;
 }

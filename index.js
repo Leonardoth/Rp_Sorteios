@@ -29,17 +29,15 @@ function reset(){
 }
 
 function show(e){
+    hide_side()
     $('#sorteio').css('display', 'none')
     $('#rifa').css('display', 'none')
     $('#cadastro_rifa').css('display', 'none')
-    $('#nova_rifa').css('display', 'none')
     load_data(e)
     $(`#${e}`).css('display', 'block')
 }
 
-function number_info(element){
 
-}
 
 function load_data(section){
     section == 'rifa'? load_rifa() : load_sorteio()
@@ -48,8 +46,8 @@ function load_data(section){
 function load_rifa(){
     var div = $('#rifa_n')[0]
     div.innerHTML = ''
-    var temp = document.getElementsByTagName('template')[0]
     var entries = Object.entries(numbers)
+    console.log(entries)
     for(const [numero, owner] of entries){
         var btn = document.createElement('button')
         btn.className = 'btn-number col-xm-1'
@@ -99,6 +97,9 @@ function load_info(element){
     var owner = element.dataset.owner || undefined
     var number = element.getElementsByTagName('label')[0].innerText
     $('.number_info').text(number)
+    hide_side_instant()
+    show_side()
+    $('#rifa_n_info').fadeIn(1000)
     if(owner){
         var rifa_info = get_data('info') || {['100-236']: ['100-236', '647-5839', 'Khilo Enil']}
         $('.owner_id').text(owner)
@@ -127,10 +128,11 @@ function delete_number(number){
     }
     save_data('numbers', numbers)
     save_data('info', info)
+    show('rifa')
 }
 
 function reset_rifa(){
-    var numbers = $('#rifa_n')[0].innerHTML = ''
+    $('#rifa_n')[0].innerHTML = ''
     new_numbers($('#rifa_quantidade')[0].value)
     load_data('rifa')
 }
@@ -168,7 +170,7 @@ function cadastrar(e){
         
         save_data('numbers', numbers)
         save_data('info', info)
-
+        show('rifa')
     }
 
 
@@ -194,4 +196,47 @@ function sortear(){
     $('#rifa_winner1').show()
     $('#rifa_winner2').show()
     $('#rifa_winner2').text(resultado)
+}
+
+
+function show_side(){   
+    $('#left-side-back').fadeIn(1000)
+    $("#left-side").animate({width:'show'}, 1000);
+}
+
+function hide_side(){
+    hide_side_instant()
+    $("#left-side").animate({width:'hide'}, 1000);
+}
+
+function cadastro(){
+    $('#cadastro').children('input').each(function(){
+        $(this).val('')
+    })
+    change_side('#cadastro_rifa')
+}
+
+function hide_side_content(){
+    $('#left-side').children('div').each(function(){
+        $(this).fadeOut(500)
+    })
+}
+
+function hide_side_instant(){
+    $('#left-side').children('div').each(function(){
+        $(this).hide()
+    })
+}
+
+function new_raffle(){
+    change_side('#nova_rifa')
+}
+
+function change_side(new_content, delay=2000){
+    // Changes the content of the sidebar without having to close it.
+    $('#nova_rifa').hide()
+    $('#cadastro_rifa').hide()
+    $('#rifa_n_info').hide()
+    $(new_content).fadeIn(2000)
+    show_side()
 }
