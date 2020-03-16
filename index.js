@@ -5,16 +5,17 @@
 
 var info = get_data('info') || {}
 var numbers =  get_data('numbers') || new_numbers()
+var entradas_sorteio = get_data('entries') || []
 
 
-function sort(){
-    var entries = $('#texto').val()
-    entries = ((entries.split('\n')).map( element => element.trim()))
-    entries = entries.filter(element => element !== "")
-    var resultado = entries[random(entries)]
+async function sort(){
+    $('#sorteio_ganhador').removeClass('great_winner')
+    $('#winner').removeClass('great_winner')
+    await sorteio_effect()
+    // var resultado = entradas_sorteio[random(entradas_sorteio)]
     
-    $('#sorteado').addClass('ativo')
-    $('#winner').text(resultado)
+    // $('#sorteado').addClass('ativo')
+    // $('#winner').text(resultado)
 }
 
 
@@ -23,7 +24,11 @@ function random(array){
 }
 
 function reset(){
+    $('#sorteio_ganhador').removeClass('great_winner')
+    $('#winner').removeClass('great_winner')
     $('#texto').val("")
+    save_data('entries', [])
+    entradas_sorteio = []
     $('#sorteado').removeClass('ativo')
     $('#winner').text("")
 }
@@ -44,10 +49,11 @@ function load_data(section){
 }
 
 function load_rifa(){
+    $('#rifa_winner1').hide()
+    $('#rifa_winner2').hide()
     var div = $('#rifa_n')[0]
     div.innerHTML = ''
     var entries = Object.entries(numbers)
-    console.log(entries)
     for(const [numero, owner] of entries){
         var btn = document.createElement('button')
         btn.className = 'btn-number col-xm-1'
@@ -71,7 +77,11 @@ function load_rifa(){
 }
 
 function load_sorteio(){
-
+    $('#texto').val('')
+    entradas_sorteio.forEach(entrada => {
+        var val = $('#texto').val()
+        $('#texto').val(val += `${entrada}\n`)
+    })
 }
 
 function get_data(data){
@@ -188,14 +198,7 @@ function debug(){
 
 
 function sortear(){
-    // choose random number (min, max)
-    var min = 1
-    var max = $('.btn-number').length
-    var resultado = Math.floor(Math.random() * max) + 1
-    // Shows winner
-    $('#rifa_winner1').show()
-    $('#rifa_winner2').show()
-    $('#rifa_winner2').text(resultado)
+    rifa_effect()
 }
 
 
@@ -232,11 +235,60 @@ function new_raffle(){
     change_side('#nova_rifa')
 }
 
-function change_side(new_content, delay=2000){
+function change_side(new_content){
     // Changes the content of the sidebar without having to close it.
     $('#nova_rifa').hide()
     $('#cadastro_rifa').hide()
     $('#rifa_n_info').hide()
     $(new_content).fadeIn(2000)
     show_side()
+}
+
+function saveTexto(){
+    var entries = $('#texto').val()
+    entries = ((entries.split('\n')).map( element => element.trim()))
+    entries = entries.filter(element => element !== "")
+    save_data('entries', entries)
+    entradas_sorteio = entries
+}
+
+
+async function sorteio_effect(){
+    // Aparecer bem rápido os participantes do sorteio, aleatoriamente
+    // Ao decidir o vencedor, dará uma classe diferenciada pros labels. Showtime.
+    if(entradas_sorteio.length <= 1) return
+    var j = Math.max(entradas_sorteio.length, 20)
+    for (let index = 0; index < j; index++) {
+        var element = entradas_sorteio[random(entradas_sorteio)]
+        await sleep(100)
+        $('#winner').text(element)
+    }
+    $('#sorteio_ganhador').addClass('great_winner')
+    $('#winner').addClass('great_winner')
+    $('#winner').text(entradas_sorteio[random(entradas_sorteio)])
+}
+
+async function rifa_effect(){
+    $('#rifa_winner1').hide()
+    $('#rifa_winner2').hide()
+    var max = $('.btn-number').length
+    var repeats = Math.max(max, 20)
+    var resultado
+    for (let index = 0; index < repeats; index++) {
+        $('.number_cursor').removeClass('number_cursor')
+        var r = Math.floor(Math.random() * max)
+        console.log('R=', r)
+        $($('.btn-number')[r]).addClass('number_cursor')
+        resultado = r+1
+        await sleep(100)
+    }
+    
+    $('#rifa_winner1').show()
+    $('#rifa_winner2').show()
+    $('#rifa_winner2').text(resultado)
+}
+
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
