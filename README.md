@@ -6,4 +6,5 @@
 
 # TODO Features:
 
-#### 1- Make effect for selecting the winner, instead of the point blank result.
+#### ~~1- Make effect for selecting the winner, instead of the point blank result.~~
+#### ~~2- Make so that every line of the 'sort' is saves as soon as it's changed.~~

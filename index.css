@@ -114,8 +114,13 @@ footer img{
     max-height:10vh;
 }
 #sorteado{
+    margin-top:20px;
     text-align:center;
     min-height:10vh;
+}
+
+#winnerDiv{
+    height:2vh;
 }
 
 #sorteado div{
@@ -140,11 +145,25 @@ footer img{
     #texto{
         width:50vw;
     }
+    #sorteado div{
+        height:2vh;
+    }
 }
 @media (max-width:600px){
     #texto{
         width:90vw;
     }
+    
+}
+
+.great_winner{
+    min-width:200px;
+    font-size:2.3vh;
+    color:rgba(255, 253, 253, 0.938);
+    font-weight: 800;
+    background-color:var(--blue-1);
+    border:1px solid var(--greenish);
+    border-radius:10px;
 }
 
 
@@ -184,6 +203,24 @@ footer img{
     background-color:rgb(240, 80, 80) !important;
 }
 
+
+.number_cursor{
+    background-color:rgba(30, 214, 100, 0.842) !important;
+    border:2px solid white !important;
+}
+
+.number_cursor label{
+    color:black !important;
+    font-weight: 500;
+}
+
+.resultado{
+    background-color: var(--blue-1) ;
+    color:white ;
+    min-width:200px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
 /* Cadastro */
 
 #cadastro label{

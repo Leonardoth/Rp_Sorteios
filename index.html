@@ -69,8 +69,10 @@
             <div id='sorteio'>
                 <div id="sorteado">
                     <div id='resultado'>
-                        <label>Ganhador:</label>
-                        <label id='winner'></label>
+                        <label id='sorteio_ganhador' >Ganhador:</label>
+                        <div id='winnerDiv'>
+                            <label id='winner'></label>
+                        </div>
                     </div>
                 </div>
                 <div id='sorteado2'>
@@ -78,14 +80,16 @@
                         <label></label>
                         <button onclick='reset()'> Reset</button>
                     </div>
-                    <textarea  id="texto" cols="100" rows="10" placeholder="Um participante por linha!"></textarea>
+                    <textarea  id="texto" cols="100" rows="10" placeholder="Um participante por linha!" oninput="saveTexto()"></textarea>
                 </div>
                 <button class='sortear' onclick='sort()'>Sortear</button>
             </div>
             <div id='rifa'>
                 <div id='result'>
-                    <label id='rifa-winner1'>Numero Sorteado:</label>
-                    <label id='rifa_winner2'></label>
+                    <label id='rifa_winner1' class='resultado'>Numero Sorteado:</label>
+                    <div>
+                        <label id='rifa_winner2' class='resultado'></label>
+                    </div>
                 </div>
                 <div id='rifa_n' class='rifa_numbers'>
 
