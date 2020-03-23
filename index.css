@@ -40,7 +40,7 @@ footer img{
         display:none;
     }
 }
-#sorteio, #rifa_n_info, #cadastro_rifa, #left-side, #rifa{
+#sorteio, #rifa_n_info, #cadastro_rifa, #left-side, #rifa, #import_hidden{
     display:none;
 }
 
@@ -221,6 +221,14 @@ footer img{
     border-radius: 10px;
     border: 2px solid white;
 }
+
+#import{
+    position:absolute;
+    right:1.5vw;
+    bottom:5vh;
+}
+
+
 /* Cadastro */
 
 #cadastro label{

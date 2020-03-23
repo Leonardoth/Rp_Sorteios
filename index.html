@@ -95,7 +95,16 @@
 
                 </div>
                 <button onclick='sortear()'>Sortear</button>
+                <div id='import'>
+                    <button  id='import_button' onclick='import_show()'>Importar</button>
+                    <div id='import_hidden'>
+                        <textarea id="import_text"></textarea>
+                        <button onclick="json_imported()">Salvar</button>
+                        <button onclick="import_hide()">Cancelar</button>
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
             <footer>

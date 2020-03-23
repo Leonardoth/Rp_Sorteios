@@ -12,10 +12,6 @@ async function sort(){
     $('#sorteio_ganhador').removeClass('great_winner')
     $('#winner').removeClass('great_winner')
     await sorteio_effect()
-    // var resultado = entradas_sorteio[random(entradas_sorteio)]
-    
-    // $('#sorteado').addClass('ativo')
-    // $('#winner').text(resultado)
 }
 
 
@@ -291,4 +287,42 @@ async function rifa_effect(){
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function import_show(){
+    $('#import_hidden').show()
+    $('#import_button').hide()
+}
+
+function import_hide(){
+    $('#import_button').show()
+    $("#import_text").val('')
+    $('#import_hidden').hide()
+}
+
+function json_imported(){
+    var data
+    try{
+        data = JSON.parse($('#import_text').val())
+    }catch(err){
+        return import_hide()
+    }
+    if(data.numbers !== undefined){
+        new_numbers(Object.keys(data.numbers).length)
+        save_data('numbers', data.numbers)
+        var info = convert_participants(data.participants)
+        save_data('info', info)
+    }
+
+    import_hide()
+}
+
+function convert_participants(object){
+    var information = {}
+    Object.keys(object).forEach(key =>{
+        var participant = object[key]
+        information[key] = [participant.rg, participant.contato, participant.nome, participant.numeros]
+    })
+
+    return information
 }
