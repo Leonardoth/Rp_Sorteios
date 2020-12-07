@@ -130,6 +130,7 @@ footer img{
 }
 
 #sorteado2 {
+    position: relative;
     text-align:center;
     max-height:95vh;
 }
@@ -166,6 +167,15 @@ footer img{
     border-radius:10px;
 }
 
+#sorteado2 .info {
+    position: absolute;
+    display: inline;
+    top: 0;
+    right: 100px;
+}
+.info label{
+    display:block;
+}
 
 /* Rifa */
 

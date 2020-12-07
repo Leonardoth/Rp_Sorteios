@@ -81,6 +81,13 @@
                         <button onclick='reset()'> Reset</button>
                     </div>
                     <textarea  id="texto" cols="100" rows="10" placeholder="Um participante por linha!" oninput="saveTexto()"></textarea>
+                    <div class='info'>
+                        <label>Participantes</label>
+                        <label id='sorteio_participantes'>0</label>
+                        <input id='sorteio_entrada' type='number'/>
+                        <button onclick=calculateValue()>Calcular Valor</button>
+                        <label style='opacity: 0;' id='sorteio_lucro'>0</label>
+                    </div>
                 </div>
                 <button class='sortear' onclick='sort()'>Sortear</button>
             </div>
