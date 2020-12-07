@@ -176,7 +176,11 @@ footer img{
 .info label{
     display:block;
 }
-
+.info input{
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
 /* Rifa */
 
 
