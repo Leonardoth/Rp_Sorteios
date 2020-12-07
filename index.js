@@ -14,8 +14,11 @@ async function sort(){
     await sorteio_effect()
 }
 
-function updateParticipants(number){
-    $('#sorteio_participantes').text(number)
+function updateParticipants(){
+    var entries = $('#texto').val()
+    entries = ((entries.split('\n')).map( element => element.trim()))
+    entries = entries.filter(element => element !== "")
+    $('#sorteio_participantes').text(entries.length)
 }
 
 function calculateValue(){
@@ -34,7 +37,7 @@ function reset(){
     $('#texto').val("")
     save_data('entries', [])
     entradas_sorteio = []
-    updateParticipants(0)
+    updateParticipants()
     $('#sorteio_lucro').css('opacity', 0)
     $('#sorteado').removeClass('ativo')
     $('#winner').text("")
@@ -89,6 +92,7 @@ function load_sorteio(){
         var val = $('#texto').val()
         $('#texto').val(val += `${entrada}\n`)
     })
+    updateParticipants()
 }
 
 function get_data(data){
@@ -257,7 +261,7 @@ function saveTexto(){
     entries = entries.filter(element => element !== "")
     save_data('entries', entries)
     entradas_sorteio = entries
-    updateParticipants(entradas_sorteio.length)
+    updateParticipants()
 }
 
 
